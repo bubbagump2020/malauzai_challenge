@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+</head>
+
+<body>
+    <h1>Bank Search New Form</h1>
+    <%= form_tag("/searches") do %>
+        <%= label_tag('search[name]', "Name: ") %>
+        <%= text_field_tag('search[name]') %>
+        <br>
+        <%= label_tag('search[lat]', "Latitude: ") %>
+        <%= text_field_tag('search[lat]') %>
+        <br>
+        <%= label_tag('search[long]', "Longitude: ") %>
+        <%= text_field_tag('search[long]') %>
+        <br>
+        <%= submit_tag "Search"%>
+    <% end %>
+
+</body>
+
+
+</html>
