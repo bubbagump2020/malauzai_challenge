@@ -1,15 +1,17 @@
 class SearchesController < ApplicationController
 
     def index
-
+        @searches = Search.all
+        render 'index'
     end
 
     def new
+        @search = Search.new
         render 'new'
     end
 
     def create
-        @search = Search.new(search_params)
+        @search = Search.create(search_params)
         if @search.save
             flash[:success]
         else
@@ -24,7 +26,7 @@ class SearchesController < ApplicationController
     private
 
     def search_params
-        params.permit(:name, :lat, :long)
+        params.require(:search).permit(:name, :lat, :long)
     end
 
 
