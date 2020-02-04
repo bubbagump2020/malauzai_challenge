@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_191556) do
+ActiveRecord::Schema.define(version: 2020_02_04_224534) do
 
   create_table "searches", force: :cascade do |t|
     t.string "name"
-    t.string "lat"
-    t.string "long"
+    t.string "latitude"
+    t.string "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

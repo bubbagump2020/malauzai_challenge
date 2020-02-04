@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <head>
 </head>
-
 <body>
-    <h1>Bank Search New Form</h1>
+    <h3>Malauzai Code Challenge</h3>
     <%= form_tag("/searches") do %>
         <%= label_tag('search[name]', "Name: ") %>
         <%= text_field_tag('search[name]') %>
         <br>
-        <%= label_tag('search[lat]', "Latitude: ") %>
-        <%= text_field_tag('search[lat]') %>
+        <%= label_tag('search[latitude]', "Latitude: ") %>
+        <%= text_field_tag('search[latitude]') %>
         <br>
-        <%= label_tag('search[long]', "Longitude: ") %>
-        <%= text_field_tag('search[long]') %>
+        <%= label_tag('search[longitude]', "Longitude: ") %>
+        <%= text_field_tag('search[longitude]') %>
         <br>
-        <%= submit_tag "Search"%>
+        <%= submit_tag "Search!"%>
     <% end %>
-    <a href="/searches" >Searches</a>
+    <a href="/searches">Searches</a>
 </body>
-
-
 </html>

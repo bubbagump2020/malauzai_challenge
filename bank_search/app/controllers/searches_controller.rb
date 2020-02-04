@@ -1,33 +1,31 @@
 class SearchesController < ApplicationController
 
+    def show
+        @url = Url.site
+        @search = Search.find_by_id(params[:id])
+        @full_url = RestClient.get("#{@url}json?input=#{@search.name}&inputtype=textquery&field=name,type,locations,language&locationbias=point:#{@search.latitude},#{@search.longitude}&key=AIzaSyBAnEpGMdG4aeb-chrxedvGa74BYhpY2DI")
+        @response = JSON.parse(@full_url.body)
+        print @response
+    end
+
     def index
         @searches = Search.all
         render 'index'
     end
 
-    def new
-        @search = Search.new
-        render 'new'
-    end
-
     def create
-        @search = Search.create(search_params)
+        @search = Search.new(search_params)
         if @search.save
-            flash[:success]
+            redirect_to '/'
         else
-            flasj[:failure]
+            flash[:failure] = "You Failed!"
         end
-    end
-
-    def show
-
     end
 
     private
 
     def search_params
-        params.require(:search).permit(:name, :lat, :long)
+        params.require(:search).permit(:name, :latitude, :longitude)
     end
-
 
 end

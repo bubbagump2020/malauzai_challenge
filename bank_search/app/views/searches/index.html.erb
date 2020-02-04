@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <head>
-
 </head>
 
 <body>
-    <h1>Searches</h1>
-    <% if @searches.length == 0 %>
-        <p>You have no searches</p>
-    <% else %>
-        <%= @searches.each do | search | %>
-            <p><%= search.name %></p>
-        <% end %>
+    <h3>Malauzai Code Challenge</h3>
+    <% @searches.each do | search |%>
+        <a href="/searches/<%= search.id %>"><%= search.name %><a><br>
     <% end %>
+    <a href="/">New Search</a>
 </body>
-
-
 </html>
