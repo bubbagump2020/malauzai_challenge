@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-    <h1>New Search</h1>
+    <h2>New Search</h2>
     <%if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
     <% end %>
@@ -21,6 +21,6 @@
         </div>
         <%= submit_tag("Search")%>
     <% end %>
-    <a href="/customer_searches">Search Index</a>
+    <strong><a href="/customer_searches">Search Index</a></strong>
 </body>
 </html>
