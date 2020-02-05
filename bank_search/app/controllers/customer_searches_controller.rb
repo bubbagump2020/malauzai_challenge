@@ -7,7 +7,6 @@ class CustomerSearchesController < ApplicationController
 
     def create
         @customer = Customer.find_by_name(search_params[:name])
-        binding.pry
         if @customer != nil
             @search = CustomerSearch.new({
             customer_id: @customer.id,

@@ -1,3 +1,11 @@
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@search.latitude%>, <%=@search.longitude%>)
+    });
+    </script>
+<% end %>
+
 <!DOCTYPE html>
 <head>
 </head>
@@ -8,7 +16,7 @@
         }
     </style>
 <body>
-  <h1>Customer Show</h1>
+  <h2>Customer Information</h2>
   <div id="map"></div>
     <script>
       var map;
@@ -22,13 +30,10 @@
     <script src="https://maps.googleapis.com/maps/api/place/findplacefromtext/<%= @customer.response %>?input=<%= @customer.name %>&inputtype=textquery&fields=<%= @customer.bank_type %>&language=<%= @customer.language%>&locationbias=point:<%= @search.latitude %>,<%= @search.longitude %>&key=AIzaSyBAnEpGMdG4aeb-chrxedvGa74BYhpY2DI"
     async defer></script>
   <div>
-    <%= @customer.response %>
+    <strong><a href="/">New Search</a></strong>
   </div>
   <div>
-    <a href="/">New Search</a>
-  </div>
-  <div>
-    <a href="/customer_searches">Search Index</a>
+    <strong><a href="/customer_searches">Search Index</a></strong>
   </div>
 <body>
 </html>
