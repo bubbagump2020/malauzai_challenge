@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <h1>New Search</h1>
+    <%if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <%= form_with(url: "/customer_searches", method: "POST") do %>
+        <div>
+            <%= label_tag(:name, "Name: ") %>
+            <%= text_field_tag(:name) %>
+        </div>
+        <div>
+            <%= label_tag(:latitude, "Latitude: ") %>
+            <%= text_field_tag(:latitude) %>
+        </div>
+        <div>
+            <%= label_tag(:longitude, "Longitude ") %>
+            <%= text_field_tag(:longitude) %>
+        </div>
+        <%= submit_tag("Search")%>
+    <% end %>
+    <a href="/customer_searches">Search Index</a>
+</body>
+</html>
