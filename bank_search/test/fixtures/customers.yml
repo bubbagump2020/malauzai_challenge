@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  language: MyString
+  locations: 1
+  response_output: 
+  longitude: 1.5
+
+two:
+  name: MyString
+  type: 
+  language: MyString
+  locations: 1
+  response_output: 
+  longitude: 1.5

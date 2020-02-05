@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <h1>Customer Searches Index</h1>
+    <% @searches.each do |search| %>
+        <div>
+            <a href="/customers/<%= search.customer_id %>"><%= search.name %><a>
+        </div>
+    <% end %>
+    <a href="/">New Search</a>
+</body>
+</html>

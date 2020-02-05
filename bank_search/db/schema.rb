@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_224534) do
+ActiveRecord::Schema.define(version: 2020_02_05_212336) do
 
-  create_table "searches", force: :cascade do |t|
+  create_table "customer_searches", force: :cascade do |t|
+    t.integer "customer_id"
     t.string "name"
     t.string "latitude"
     t.string "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_customer_searches_on_customer_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "bank_type"
+    t.string "language"
+    t.string "response"
+    t.integer "locations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
