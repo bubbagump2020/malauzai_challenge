@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
         @bank_request = " "
         @locations = {}
         if @customer.response == "xml"
+            # struggling to get xml parsing working
             if @customer.bank_type == "atm"
                 @atm_request = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/#{@customer.response}?&location=#{@search.latitude},#{@search.longitude}&radius=2500&language=#{@customer.language}&type=#{@customer.bank_type}&key=AIzaSyBAnEpGMdG4aeb-chrxedvGa74BYhpY2DI")
                 @locations = Nokogiri::HTML(open(@atm_request))
@@ -22,9 +23,6 @@ class CustomersController < ApplicationController
             end
         end
         binding.pry
-        # @locations["results"].each do |result|
-        #     print result["name"]
-        # end
   
         render 'show'
     end

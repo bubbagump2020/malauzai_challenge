@@ -18,13 +18,12 @@ class CustomerSearchesController < ApplicationController
                 redirect_to "/customer_searches"
             end
         else
-            flash[:notice] = "User Does Not Exist"
+            flash[:notice] = "Customer Does Not Exist"
         end
     end
 
     def show
         @customer = Customer.find_by(:customer_id)
-        binding.pry
         render 'show'
     end
 
